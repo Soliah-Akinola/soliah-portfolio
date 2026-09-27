@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-paper: #F3F7F4;
+  --color-ink: #15181C;
+  --color-muted: #55606B;
+  --color-line: #D6E2DA;
+  --color-mist: #E6EDE8;
+  --color-mint: #E5F2EB;
+  --color-pine: #125B50;
+  --color-pine-dark: #0B3F37;
+  --color-pine-soft: #D5ECE2;
+  --color-leaf: #7FD4A9;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  /* Soft green glows at the top of the page instead of a flat background */
+  background:
+    radial-gradient(900px 520px at 92% -60px, #C9E7D8 0%, transparent 70%),
+    radial-gradient(700px 460px at -8% 280px, #DDF0E5 0%, transparent 70%),
+    var(--color-paper);
+  background-repeat: no-repeat;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pine);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* White focus ring on the green navbar and footer */
+header :focus-visible,
+footer :focus-visible {
+  outline-color: #fff;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.25s; }
+.rise-4 { animation-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+}
